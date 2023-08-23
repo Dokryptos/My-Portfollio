@@ -1,9 +1,10 @@
 import './App.css';
+import { LoadingBar } from './Composents/Loading';
 
 function App() {
   return (
     <div>
-      <h1>Bonjour</h1>
+      <LoadingBar duration={20}/>
     </div>
   );
 }
