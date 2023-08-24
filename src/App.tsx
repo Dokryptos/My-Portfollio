@@ -1,10 +1,25 @@
+import { useState } from 'react';
 import './App.css';
 import { LoadingBar } from './Composents/Loading';
 
-function App() {
+const App: React.FC = () => {
+
+  const [isLoadingComplete, setIsLoadingComplete] = useState(false)
+  
+  const handleLoadingPage = () => {
+    setIsLoadingComplete(true);
+  }
+  
   return (
     <div>
-      <LoadingBar duration={20}/>
+      {isLoadingComplete ? (
+          <div>
+              
+          </div>
+      ) : (
+        <LoadingBar duration={20} isComplete={handleLoadingPage} />
+      )}
+
     </div>
   );
 }

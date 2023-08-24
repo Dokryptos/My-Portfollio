@@ -4,24 +4,31 @@ import React, {useState, useEffect, FunctionComponent} from "react"
 
 interface LoadingBarProps{
     duration?: number,
+    isComplete: () => void,
 }
 
-export const LoadingBar: FunctionComponent <LoadingBarProps> = ({duration = 5}) => {
-    const [progress, setProgress] = useState(0);
+export const LoadingBar: FunctionComponent <LoadingBarProps> = ({duration = 5, isComplete}) => {
+    let [progress, setProgress] = useState(0);
     
     useEffect(() => {
         const interval = setInterval(() => {
             setProgress((prevProgress) => {
             const newProgress = prevProgress + 1;
+            if(newProgress >= 100){
+                isComplete();
+                clearInterval(interval)   
+            }
             return newProgress > 100 ? 100 : newProgress;
+
             });
         }, (duration * 100) / 100);
+        
 
-        return () => clearInterval(interval)
     }, [duration]);
 
 
-    return(
+
+            return(
         <div className="flex flex-col items-center justify-center h-screen">
             <p className="text-white mb-10">{progress}%</p>
             <div className=" bg-gray-bar w-48 h-1 absolute">
@@ -29,4 +36,5 @@ export const LoadingBar: FunctionComponent <LoadingBarProps> = ({duration = 5}) 
             </div>
         </div>
     )
+    
 }
