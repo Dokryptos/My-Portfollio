@@ -1,40 +1,33 @@
 
 
-import React, { FunctionComponent, useEffect, useState} from 'react'
+import React, { FunctionComponent, useEffect, useState, useRef, useLayoutEffect} from 'react'
 import DOK from "../Assets/desktop/Dok1.png"
 import "./Home-Img.css"
+import { motion, useScroll } from 'framer-motion'
+
+
+
+
+
 
 export const HomeImg: FunctionComponent = () => {
-    let [scrollY, setScrollY] = useState(0 || Number);
-
-        const handleScrollBar = () => {
-            setScrollY(window.scrollY);
-        };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScrollBar);
-
-        return () => {
-            window.removeEventListener("scroll", handleScrollBar);
-        };
-    }, []);
-
+    const { scrollYProgress } = useScroll();
     const imageHeight = Math.min(100, (scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
     
     return(
         <>
-        <div className='relative h-screen'>
             <div className='image-container'>
-                    <img  
-                    src={DOK} 
-                    style={{ 
-                        height: `${imageHeight}vh`,
-                        transform: `translateY(${scrollY}px)`,
+                <motion.div
+                className='image'
+                style={{
+                    scaleX: scrollYProgress,
                 }}
-                    className='object-cover w-full h-50 transition-transform duration-0 transform max-h-screen max-w-screen'  
-                    />
+                initial={{translateY: 0}}
+                animate={{translateY: -scrollY / 2}}
+                >
+                    <img src={DOK}/> 
+                </motion.div>
             </div>
-        </div>
         </>
     )
 }
