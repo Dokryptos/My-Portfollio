@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { LoadingBar } from './Composents/Loading';
+import { HomeImg } from './Composents/Home-Img';
 
 const App: React.FC = () => {
 
@@ -14,7 +15,7 @@ const App: React.FC = () => {
     <div>
       {isLoadingComplete ? (
           <div>
-              
+              <HomeImg />
           </div>
       ) : (
         <LoadingBar duration={20} isComplete={handleLoadingPage} />

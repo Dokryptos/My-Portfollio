@@ -25,6 +25,8 @@ export const LoadingBar: FunctionComponent <LoadingBarProps> = ({duration = 5, i
         
 
     }, [duration]);
+    
+
 
 
 

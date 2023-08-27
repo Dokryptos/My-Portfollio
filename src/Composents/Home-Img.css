@@ -1,0 +1,7 @@
+
+.image-container{
+    position: relative;
+    width: 100%;
+    height: 150vh;
+    overflow: hidden;
+}
