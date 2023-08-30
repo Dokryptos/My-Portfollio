@@ -4,28 +4,25 @@
     height: 300vh;
     overflow: hidden;
     transform-origin: 50% 0%;
+    margin: 0;
+    padding: 0;
 }
 
 .Parallax-img{
-
-    position: fixed;
     max-width: 96vw;
     width: 96vw;
-    margin: 0vh 1vw ;
+    margin: 0  1vw;
     height: calc(100% - 1rem);
-
 }
 .Parallax-about{
-    position: fixed;
     max-width: 80vw;
     width: 80vw;
-    top: 2rem;
-    left: 2rem;
-    height: auto;
-    margin: 0 10vw;
+    height: calc(100% - 1rem);
+    margin: 0vh 10vw;
 }
 
 
 .Parallax-img:nth-child(3){
     margin-top: 50vh;
 }
+
