@@ -3,34 +3,29 @@
     width: 100%;
     height: 300vh;
     overflow: hidden;
-    position: absolute;
+    transform-origin: 50% 0%;
 }
 
 .Parallax-img{
 
-    position: relative;
+    position: fixed;
     max-width: 96vw;
     width: 96vw;
-    margin: 1vh 1vw 10vh 1vw;
-    top: 0;
-    left: 0;
-    height: auto;
+    margin: 0vh 1vw ;
+    height: calc(100% - 1rem);
 
 }
 .Parallax-about{
-    position: relative;
+    position: fixed;
     max-width: 80vw;
     width: 80vw;
-    top: 0;
-    left: 0;
+    top: 2rem;
+    left: 2rem;
     height: auto;
     margin: 0 10vw;
-}
-.Parallax-img:nth-child(2){
-    margin-top: 25vh;
 }
 
 
 .Parallax-img:nth-child(3){
-    margin-top: 100vh;
+    margin-top: 50vh;
 }

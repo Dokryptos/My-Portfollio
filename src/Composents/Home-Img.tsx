@@ -18,13 +18,13 @@ export const HomeImg: FunctionComponent = () => {
     });
 
     
-    const scaleY1 = useTransform(scrollYProgress, [0, 0.2, 0.3], [1, 1.7, 0])
-    const scaleY2 = useTransform(scrollYProgress, [0.2, 0.5, 0.7], [0, 1, 0])
-    const scaleY3 = useTransform(scrollYProgress, [0.6, 0.9, 1], [1, 1.7, 0])
+    const scaleY1 = useTransform(scrollYProgress, [0, 0.2, 0.3, 0.4], [1, 1.7, 0.5, 0])
+    const scaleY2 = useTransform(scrollYProgress, [0.3, 0.5, 0.8], [0, 1, 0])
+    const scaleY3 = useTransform(scrollYProgress, [0.7, 0.9, 1], [1, 1.7, 0])
     
-    const translateY1 = useTransform(scrollYProgress, [0, 1], ['40vh', '10vh']);
-    const translateY2 = useTransform(scrollYProgress, [0, 1], ['50vh', '10vh']);
-    const translateY3 = useTransform(scrollYProgress, [0, 1], ['200vh', '10vh']);
+    const translateY1 = useTransform(scrollYProgress, [0, 0.3, 0.4], ['40vh', '70vh', '100vh']);
+    const translateY2 = useTransform(scrollYProgress, [0, 1], ['20vh', '50vh']);
+    const translateY3 = useTransform(scrollYProgress, [0, 1], ['100vh', '40vh']);
 
     return(
         <>
@@ -33,6 +33,7 @@ export const HomeImg: FunctionComponent = () => {
                 style={{
                     scaleY: scaleY1,
                     translateY: translateY1,
+                    transformOrigin: `50% 0% 0px `
                 }}>
                     <img src={DOK} alt='DOK' className='Parallax-img'/>    
                 </motion.div>   
