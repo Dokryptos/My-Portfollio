@@ -1,0 +1,13 @@
+.about-container{
+    position: absolute;
+    width: 100vw;
+    height: 150vh;
+    overflow: hidden;
+}
+
+.about-img{
+    position: relative;
+    max-width: 96vw;
+    margin: 0 2vw;
+    height: auto;
+}

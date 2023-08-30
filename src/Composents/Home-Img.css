@@ -1,22 +1,36 @@
 
 .image-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
-    height: 150vh;
+    height: 300vh;
     overflow: hidden;
     position: absolute;
 }
 
-.DOK-img{
+.Parallax-img{
 
     position: relative;
-    margin: 1em;
-    max-width: 100vw;
+    max-width: 96vw;
     width: 96vw;
+    margin: 1vh 1vw 10vh 1vw;
+    top: 0;
+    left: 0;
     height: auto;
-    z-index: 1;
-    padding-bottom: 10em;
+
+}
+.Parallax-about{
+    position: relative;
+    max-width: 80vw;
+    width: 80vw;
+    top: 0;
+    left: 0;
+    height: auto;
+    margin: 0 10vw;
+}
+.Parallax-img:nth-child(2){
+    margin-top: 25vh;
 }
 
+
+.Parallax-img:nth-child(3){
+    margin-top: 100vh;
+}
