@@ -19,6 +19,7 @@ export const HomeImg: FunctionComponent = () => {
     
     const scaleY = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.7, 0])
     const translateY = useTransform(scrollYProgress, [0, 1], ['50vh', '-50vh']);
+
     return(
         <>
             <div className='image-container' ref={ref}>
