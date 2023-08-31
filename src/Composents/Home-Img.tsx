@@ -82,7 +82,9 @@ export const HomeImg: FunctionComponent = () => {
                             <img src={MobileAbout} alt='About-Parallax' className='mobile-about' />
                         </motion.div>
                         
-                        <motion.div style={{
+                        <motion.div 
+                        className=''
+                        style={{
                             scaleY: mobileScaleY3,
                             transformOrigin: `bot center`,
                             position: "fixed",
