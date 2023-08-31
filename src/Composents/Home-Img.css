@@ -1,9 +1,8 @@
 
-.image-container{
+.desktop-container{
     width: 100%;
     height: 300vh;
     overflow: hidden;
-    transform-origin: 50% 0%;
     margin: 0;
     padding: 0;
 }
@@ -22,7 +21,27 @@
 }
 
 
-.Parallax-img:nth-child(3){
-    margin-top: 50vh;
+
+
+.mobile-container{
+    width: 100%;
+    height: 200vh;
+    overflow: hidden;
+    transform-origin: 50% 0%;
+    margin: 0;
+    padding: 0;
 }
 
+.mobile-img{
+    max-width: 96vw;
+    width: 96vw;
+    margin: 0  2vw;
+    height: calc(100% - 1rem);
+}
+
+.mobile-about{
+    max-width: 96vw;
+    width: 96vw;
+    height: calc(100% - 1rem);
+    margin: 0vh 2vw;
+}

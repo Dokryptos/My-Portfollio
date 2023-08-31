@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './App.css';
 import { LoadingBar } from './Composents/Loading';
 import { HomeImg } from './Composents/Home-Img';
-import { About } from './Composents/About';
 
 const App: React.FC = () => {
 
