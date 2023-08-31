@@ -30,29 +30,35 @@ export const HomeImg: FunctionComponent = () => {
 
         const scaleY1 = useTransform(scrollYProgress, [0, 0.2, 0.3, 0.4], [0.9, 1.6, 0.9, 0])
         const scaleY2 = useTransform(scrollYProgress, [0.3, 0.5, 0.8], [0, 0.8, 0])
-        const scaleY3 = useTransform(scrollYProgress, [0.7, 0.9, 1], [0, -1.6, 0])
+        const scaleY3 = useTransform(scrollYProgress, [0.7, 0.9, 1], [0, -1.6, -0.1])
+
+        const scaleX = useTransform(scrollYProgress, [0.45, 0.95, 1], [1, 1, 0.1])
+
         
         const opacity1 = useTransform(scrollYProgress, [0, 0.4, 0.041], [1, 1, 0])
         const opacity2 = useTransform(scrollYProgress, [0.3, 0.8, 0.81], [1, 1, 0])
-        const opacity3 = useTransform(scrollYProgress, [0,0.699, 0.7, 1, 1], [0, 0, 1, 1 ,0])
+        const opacity3 = useTransform(scrollYProgress, [0,0.699, 0.7, 1, 1.5], [0, 0, 1, 1 ,1])
 
         const translateY1 = useTransform(scrollYProgress, [0, 0.2, 0.4], ['45vh', '2.5vh', '2.5vh']);
         const translateY2 = useTransform(scrollYProgress, [0.3, 0.5, 0.8], ['80vh', '10vh', '2.5vh']);
-        const translateY3 = useTransform(scrollYProgress, [0.7, 0.9,  1], ['100vh', '95vh', '2.5vh']);
+        const translateY3 = useTransform(scrollYProgress, [0.7, 0.9,  1], ['100vh', '95vh', '15vh']);
         
 
 
         const mobileScaleY1 = useTransform(scrollYProgress, [0, 0.2, 0.3, 0.4], [2, 6.8, 2, 0])
         const mobileScaleY2 = useTransform(scrollYProgress, [0.22, 0.3, 0.5, 0.8], [0, 1, 1 , 1])
-        const mobileScaleY3 = useTransform(scrollYProgress, [0.45, 0.6, 0.85, 1], [0, -2, -6.8, -1])
+        const mobileScaleY3 = useTransform(scrollYProgress, [0.45, 0.6, 0.85, 1], [0, -2, -6.8, -0.2])
+
+        const mobileScaleX = useTransform(scrollYProgress, [0.45, 0.95, 1], [1, 1, 0.2])
+
         
         const mobileOpacity1 = useTransform(scrollYProgress, [0, 0.4, 0.041], [1, 1, 0])
         const mobileOpacity2 = useTransform(scrollYProgress, [0.22, 0.8, 0.81], [1, 1, 0])
-        const mobileOpacity3 = useTransform(scrollYProgress, [0,0.45, 0.7, 1, 1.01], [0, 1, 1, 1 ,1])
+        const mobileOpacity3 = useTransform(scrollYProgress, [0,0.45, 0.7, 1, 1.5], [1, 1, 1, 1 ,1])
 
         const mobileTranslateY1 = useTransform(scrollYProgress, [0, 0.2, 0.3], ['70vh', '2.5vh', '2.5vh']);
         const mobileTranslateY2 = useTransform(scrollYProgress, [0.22, 0.3 , 0.45, 0.6, 0.9], ['90vh', '37vh' , '2.5vh', '-10vh', '-100vh']);
-        const mobileTranslateY3 = useTransform(scrollYProgress, [0.5, 0.85,  1], ['100vh', '98vh', '15vh']);
+        const mobileTranslateY3 = useTransform(scrollYProgress, [0.5, 0.85,  1], ['100vh', '98vh', '10vh']);
 
 
         return(
@@ -83,10 +89,11 @@ export const HomeImg: FunctionComponent = () => {
                         </motion.div>
                         
                         <motion.div 
-                        className=''
+                        
                         style={{
+                            scaleX: mobileScaleX,
                             scaleY: mobileScaleY3,
-                            transformOrigin: `bot center`,
+                            transformOrigin: `top center`,
                             position: "fixed",
                             opacity: mobileOpacity3,
                             translateY: mobileTranslateY3
@@ -126,8 +133,9 @@ export const HomeImg: FunctionComponent = () => {
                 </motion.div>
                 
                 <motion.div style={{
+                    scaleX: scaleX,
                     scaleY: scaleY3,
-                    transformOrigin: `bot center`,
+                    transformOrigin: `top center`,
                     position: "fixed",
                     opacity: opacity3,
                     translateY: translateY3
