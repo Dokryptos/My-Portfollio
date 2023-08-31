@@ -1,68 +1,78 @@
 
 
-import React, { FunctionComponent, useRef} from 'react'
+import React, { FunctionComponent, useEffect, useRef} from 'react'
 import DOK from "../Assets/desktop/Dok1.svg"
 import AboutImg from "../Assets/desktop/InternetPage.svg"
 import MobileDOK from "../Assets/mobile/DOK.svg"
 import MobileAbout from "../Assets/mobile/internet-Page.svg"
-import "./Home-Img.css"
-import { motion, useScroll, useTransform } from 'framer-motion'
+import "./About.css"
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
+import { useNavigate, Navigate } from 'react-router-dom'
 
 
 
 
+export const About: FunctionComponent = () => {
 
-
-export const HomeImg: FunctionComponent = () => {
+    // Ref the Scroll Bar for have the ScrollYProgress only on the Div 'Container'
     const ref = useRef(null)
     const { scrollYProgress } = useScroll({
         target: ref,
     });
 
+
+    // Define Media Query
     const isMobile = useMediaQuery({
-        query: "(max-device-width: 480px)",
+        query: "(max-device-width: 768px)",
       });
 
-    const isTab = useMediaQuery({
-        query: "(max-device-width: 768px)",
-    });
 
-        const scaleY1 = useTransform(scrollYProgress, [0, 0.2, 0.3, 0.4], [0.9, 1.6, 0.9, 0])
-        const scaleY2 = useTransform(scrollYProgress, [0.3, 0.5, 0.8], [0, 0.8, 0])
-        const scaleY3 = useTransform(scrollYProgress, [0.7, 0.9, 1], [0, -1.6, -0.1])
+    const endOfScroll = useTransform(scrollYProgress, [0, 0.9, 1], [false, false, true])
+    
+    const navigate = useNavigate();
 
-        const scaleX = useTransform(scrollYProgress, [0.45, 0.95, 1], [1, 1, 0.1])
+        // Render Scroll Smooth
+        const smoothScroll = useSpring(scrollYProgress, {
+            damping:50,
+            stiffness:300,
+        })
+
+        // Use Framer Motion functiuon for design the Desktop animation of the about Page
+        const scaleY1 = useTransform(smoothScroll, [0, 0.2, 0.3, 0.4], [0.9, 1.6, 0.9, 0])
+        const scaleY2 = useTransform(smoothScroll, [0.3, 0.5, 0.8], [0, 0.8, 0])
+        const scaleY3 = useTransform(smoothScroll, [0.7, 0.9, 1], [0, -1.6, -1])
+
 
         
-        const opacity1 = useTransform(scrollYProgress, [0, 0.4, 0.041], [1, 1, 0])
-        const opacity2 = useTransform(scrollYProgress, [0.3, 0.8, 0.81], [1, 1, 0])
-        const opacity3 = useTransform(scrollYProgress, [0,0.699, 0.7, 1, 1.5], [0, 0, 1, 1 ,1])
+        const opacity1 = useTransform(smoothScroll, [0, 0.4, 0.041], [1, 1, 0])
+        const opacity2 = useTransform(smoothScroll, [0.3, 0.8, 0.81], [1, 1, 0])
+        const opacity3 = useTransform(smoothScroll, [0,0.699, 0.7, 1, 1.5], [0, 0, 1, 1 ,1])
 
-        const translateY1 = useTransform(scrollYProgress, [0, 0.2, 0.4], ['45vh', '2.5vh', '2.5vh']);
-        const translateY2 = useTransform(scrollYProgress, [0.3, 0.5, 0.8], ['80vh', '10vh', '2.5vh']);
-        const translateY3 = useTransform(scrollYProgress, [0.7, 0.9,  1], ['100vh', '95vh', '15vh']);
+        const translateY1 = useTransform(smoothScroll, [0, 0.2, 0.4], ['45vh', '2.5vh', '2.5vh']);
+        const translateY2 = useTransform(smoothScroll, [0.3, 0.5, 0.8], ['80vh', '10vh', '2.5vh']);
+        const translateY3 = useTransform(smoothScroll, [0.7, 0.9,  1], ['97.5vh', '95vh', '60vh']);
         
 
+        // Use Framer Motion function for design the Mobile animation of the about Page
+        const mobileScaleY1 = useTransform(smoothScroll, [0, 0.2, 0.3, 0.4], [2, 5.5, 2, 0])
+        const mobileScaleY2 = useTransform(smoothScroll, [0.22, 0.3, 0.5, 0.8], [0, 1, 1 , 1])
+        const mobileScaleY3 = useTransform(smoothScroll, [0.45, 0.6, 0.85, 0.95], [0, -2, -5.8, -1])
 
-        const mobileScaleY1 = useTransform(scrollYProgress, [0, 0.2, 0.3, 0.4], [2, 5.5, 2, 0])
-        const mobileScaleY2 = useTransform(scrollYProgress, [0.22, 0.3, 0.5, 0.8], [0, 1, 1 , 1])
-        const mobileScaleY3 = useTransform(scrollYProgress, [0.45, 0.6, 0.85, 1], [0, -2, -6, -0.2])
-
-        const mobileScaleX = useTransform(scrollYProgress, [0.45, 0.95, 1], [1, 1, 0.2])
 
         
-        const mobileOpacity1 = useTransform(scrollYProgress, [0, 0.4, 0.041], [1, 1, 0])
-        const mobileOpacity2 = useTransform(scrollYProgress, [0.22, 0.8, 0.81], [1, 1, 0])
-        const mobileOpacity3 = useTransform(scrollYProgress, [0,0.45, 0.7, 1, 1.5], [1, 1, 1, 1 ,1])
+        const mobileOpacity1 = useTransform(smoothScroll, [0, 0.4, 0.041], [1, 1, 0])
+        const mobileOpacity2 = useTransform(smoothScroll, [0.22, 0.8, 0.81], [1, 1, 0])
+        const mobileOpacity3 = useTransform(smoothScroll, [0,0.45, 0.7, 1, 1.5], [1, 1, 1, 1 ,1])
 
-        const mobileTranslateY1 = useTransform(scrollYProgress, [0, 0.2,0.4], ['60vh', '2.5vh' ,'2.5vh']);
-        const mobileTranslateY2 = useTransform(scrollYProgress, [0.22, 0.3 , 0.45, 0.6, 0.9], ['90vh', '37vh' , '2.5vh', '-30vh', '-150vh']);
-        const mobileTranslateY3 = useTransform(scrollYProgress, [0.5, 0.85,  1], ['100vh', '98vh', '10vh']);
+        const mobileTranslateY1 = useTransform(smoothScroll, [0, 0.2,0.4], ['70vh', '2.5vh' ,'2.5vh']);
+        const mobileTranslateY2 = useTransform(smoothScroll, [0.22, 0.3 , 0.45, 0.6, 0.9], ['90vh', '37vh' , '2.5vh', '-30vh', '-150vh']);
+        const mobileTranslateY3 = useTransform(smoothScroll, [0.5, 0.85,  0.95], ['99vh', '98vh', '17.5vh']);
 
 
         return(
         <>
+        {/* Condition if the Media query is under isMobile send this code */}
         {isMobile ? (
 
                 <div className='mobile-container' ref={ref}>
@@ -73,6 +83,7 @@ export const HomeImg: FunctionComponent = () => {
                             position: "fixed",
                             opacity: mobileOpacity1,
                             translateY: mobileTranslateY1
+                            
                         }}>
                             <img src={MobileDOK} alt='DOK' className='mobile-img'/>    
                         </motion.div>   
@@ -91,7 +102,6 @@ export const HomeImg: FunctionComponent = () => {
                         <motion.div 
                         
                         style={{
-                            scaleX: mobileScaleX,
                             scaleY: mobileScaleY3,
                             transformOrigin: `top center`,
                             position: "fixed",
@@ -101,14 +111,9 @@ export const HomeImg: FunctionComponent = () => {
                             <img src={MobileDOK} alt='DOK' className='mobile-img'/>    
                         </motion.div>
                 </div>
-        ) : isTab ? (
-            <div>
-                <p>TAB</p>
-                <motion.div>
-
-                </motion.div>
-            </div>
         ) : ( 
+
+            
             <div className='desktop-container' ref={ref}>
                 <motion.div                         
                 style={{
@@ -133,7 +138,6 @@ export const HomeImg: FunctionComponent = () => {
                 </motion.div>
                 
                 <motion.div style={{
-                    scaleX: scaleX,
                     scaleY: scaleY3,
                     transformOrigin: `top center`,
                     position: "fixed",

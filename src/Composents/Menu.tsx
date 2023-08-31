@@ -8,7 +8,7 @@ export const Menu: FunctionComponent = () => {
 
     return(
         <div>
-             
+             <p>Menu</p>
         </div>
     )
 }

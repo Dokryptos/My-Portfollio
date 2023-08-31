@@ -5,11 +5,12 @@
     overflow: hidden;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 .Parallax-img{
-    max-width: 96vw;
-    width: 96vw;
+    max-width: 98vw;
+    width: 98vw;
     margin: 0  1vw;
     height: calc(100% - 1rem);
 }
