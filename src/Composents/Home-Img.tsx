@@ -45,7 +45,7 @@ export const HomeImg: FunctionComponent = () => {
         
 
 
-        const mobileScaleY1 = useTransform(scrollYProgress, [0, 0.16, 0.3, 0.4], [2, 6, 2, 0])
+        const mobileScaleY1 = useTransform(scrollYProgress, [0, 0.2, 0.3, 0.4], [2, 5.5, 2, 0])
         const mobileScaleY2 = useTransform(scrollYProgress, [0.22, 0.3, 0.5, 0.8], [0, 1, 1 , 1])
         const mobileScaleY3 = useTransform(scrollYProgress, [0.45, 0.6, 0.85, 1], [0, -2, -6, -0.2])
 
@@ -56,7 +56,7 @@ export const HomeImg: FunctionComponent = () => {
         const mobileOpacity2 = useTransform(scrollYProgress, [0.22, 0.8, 0.81], [1, 1, 0])
         const mobileOpacity3 = useTransform(scrollYProgress, [0,0.45, 0.7, 1, 1.5], [1, 1, 1, 1 ,1])
 
-        const mobileTranslateY1 = useTransform(scrollYProgress, [0, 0.16, 0.3], ['65vh', '2.5vh', '2.5vh']);
+        const mobileTranslateY1 = useTransform(scrollYProgress, [0, 0.2,0.4], ['60vh', '2.5vh' ,'2.5vh']);
         const mobileTranslateY2 = useTransform(scrollYProgress, [0.22, 0.3 , 0.45, 0.6, 0.9], ['90vh', '37vh' , '2.5vh', '-30vh', '-150vh']);
         const mobileTranslateY3 = useTransform(scrollYProgress, [0.5, 0.85,  1], ['100vh', '98vh', '10vh']);
 
@@ -69,7 +69,7 @@ export const HomeImg: FunctionComponent = () => {
                     <motion.div                         
                         style={{
                             scaleY: mobileScaleY1,
-                            transformOrigin: `bot center`,
+                            transformOrigin: `top center`,
                             position: "fixed",
                             opacity: mobileOpacity1,
                             translateY: mobileTranslateY1
