@@ -1,6 +1,6 @@
 
 
-import React, { FunctionComponent, useEffect, useRef} from 'react'
+import React, { FunctionComponent, useState, useRef} from 'react'
 import DOK from "../Assets/desktop/Dok1.svg"
 import AboutImg from "../Assets/desktop/InternetPage.svg"
 import MobileDOK from "../Assets/mobile/DOK.svg"
@@ -9,7 +9,7 @@ import "./About.css"
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
 import { useNavigate, Navigate } from 'react-router-dom'
-
+import { LoadingBar } from '../Composents/Loading';
 
 
 
@@ -21,22 +21,21 @@ export const About: FunctionComponent = () => {
         target: ref,
     });
 
-
     // Define Media Query
     const isMobile = useMediaQuery({
         query: "(max-device-width: 768px)",
       });
 
 
-    const endOfScroll = useTransform(scrollYProgress, [0, 0.9, 1], [false, false, true])
-    
-    const navigate = useNavigate();
+
+
 
         // Render Scroll Smooth
         const smoothScroll = useSpring(scrollYProgress, {
-            damping:50,
+            damping:40,
             stiffness:300,
         })
+
 
         // Use Framer Motion functiuon for design the Desktop animation of the about Page
         const scaleY1 = useTransform(smoothScroll, [0, 0.2, 0.3, 0.4], [0.9, 1.6, 0.9, 0])
@@ -51,8 +50,10 @@ export const About: FunctionComponent = () => {
 
         const translateY1 = useTransform(smoothScroll, [0, 0.2, 0.4], ['45vh', '2.5vh', '2.5vh']);
         const translateY2 = useTransform(smoothScroll, [0.3, 0.5, 0.8], ['80vh', '10vh', '2.5vh']);
-        const translateY3 = useTransform(smoothScroll, [0.7, 0.9,  1], ['97.5vh', '95vh', '60vh']);
+        const translateY3 = useTransform(smoothScroll, [0.7, 0.9,  1], ['97.5vh', '96vh', '60vh']);
         
+
+
 
         // Use Framer Motion function for design the Mobile animation of the about Page
         const mobileScaleY1 = useTransform(smoothScroll, [0, 0.2, 0.3, 0.4], [2, 5.5, 2, 0])
@@ -70,85 +71,101 @@ export const About: FunctionComponent = () => {
         const mobileTranslateY3 = useTransform(smoothScroll, [0.5, 0.85,  0.95], ['99vh', '98vh', '17.5vh']);
 
 
-        return(
-        <>
-        {/* Condition if the Media query is under isMobile send this code */}
-        {isMobile ? (
+        const [isLoadingComplete, setIsLoadingComplete] = useState(false)
+  
+        const handleLoadingPage = () => {
+          setIsLoadingComplete(true);
+        }
 
-                <div className='mobile-container' ref={ref}>
-                    <motion.div                         
+        if(isLoadingComplete === false){
+
+            return(
+                <LoadingBar duration={20} isComplete={handleLoadingPage} />
+            )
+        } else {
+            return(
+                <>
+        
+                {/* Condition if the Media query is under isMobile send this code */}
+                {isMobile ? (
+                        <div className='mobile-container' ref={ref}>
+                            <motion.div                         
+                                style={{
+                                    scaleY: mobileScaleY1,
+                                    transformOrigin: `top center`,
+                                    position: "fixed",
+                                    opacity: mobileOpacity1,
+                                    translateY: mobileTranslateY1
+                                    
+                                }}>
+                                    <img src={MobileDOK} alt='DOK' className='mobile-img'/>    
+                                </motion.div>   
+                                
+                                <motion.div
+                                style={{
+                                    scale: mobileScaleY2,
+                                    transformOrigin: `50% 0% 0px `,
+                                    position: "fixed",
+                                    opacity: mobileOpacity2,
+                                    translateY: mobileTranslateY2
+                                }}>
+                                    <img src={MobileAbout} alt='About-Parallax' className='mobile-about' />
+                                </motion.div>
+                                
+                                <motion.div 
+                                
+                                style={{
+                                    scaleY: mobileScaleY3,
+                                    transformOrigin: `top center`,
+                                    position: "fixed",
+                                    opacity: mobileOpacity3,
+                                    translateY: mobileTranslateY3
+                                }}>
+                                    <img src={MobileDOK} alt='DOK' className='mobile-img'/>    
+                                </motion.div>
+                        </div>
+                ) : ( 
+                    <div className='desktop-container' ref={ref}>
+                        <motion.div                         
                         style={{
-                            scaleY: mobileScaleY1,
+                            scaleY: scaleY1,
                             transformOrigin: `top center`,
                             position: "fixed",
-                            opacity: mobileOpacity1,
-                            translateY: mobileTranslateY1
-                            
+                            opacity: opacity1,
+                            translateY: translateY1
                         }}>
-                            <img src={MobileDOK} alt='DOK' className='mobile-img'/>    
+                            <img src={DOK} alt='DOK' className='Parallax-img'/>    
                         </motion.div>   
                         
                         <motion.div
                         style={{
-                            scale: mobileScaleY2,
+                            scale: scaleY2,
                             transformOrigin: `50% 0% 0px `,
                             position: "fixed",
-                            opacity: mobileOpacity2,
-                            translateY: mobileTranslateY2
+                            opacity: opacity2,
+                            translateY: translateY2
                         }}>
-                            <img src={MobileAbout} alt='About-Parallax' className='mobile-about' />
+                            <img src={AboutImg} alt='About-Parallax' className='Parallax-about' />
                         </motion.div>
                         
-                        <motion.div 
-                        
-                        style={{
-                            scaleY: mobileScaleY3,
+                        <motion.div style={{
+                            scaleY: scaleY3,
                             transformOrigin: `top center`,
                             position: "fixed",
-                            opacity: mobileOpacity3,
-                            translateY: mobileTranslateY3
+                            opacity: opacity3,
+                            translateY: translateY3
                         }}>
-                            <img src={MobileDOK} alt='DOK' className='mobile-img'/>    
+                            <img src={DOK} alt='DOK' className='Parallax-img'/>    
                         </motion.div>
-                </div>
-        ) : ( 
+                    </div>
+                )}    
+                </>
+            )
 
-            
-            <div className='desktop-container' ref={ref}>
-                <motion.div                         
-                style={{
-                    scaleY: scaleY1,
-                    transformOrigin: `top center`,
-                    position: "fixed",
-                    opacity: opacity1,
-                    translateY: translateY1
-                }}>
-                    <img src={DOK} alt='DOK' className='Parallax-img'/>    
-                </motion.div>   
-                
-                <motion.div
-                style={{
-                    scale: scaleY2,
-                    transformOrigin: `50% 0% 0px `,
-                    position: "fixed",
-                    opacity: opacity2,
-                    translateY: translateY2
-                }}>
-                    <img src={AboutImg} alt='About-Parallax' className='Parallax-about' />
-                </motion.div>
-                
-                <motion.div style={{
-                    scaleY: scaleY3,
-                    transformOrigin: `top center`,
-                    position: "fixed",
-                    opacity: opacity3,
-                    translateY: translateY3
-                }}>
-                    <img src={DOK} alt='DOK' className='Parallax-img'/>    
-                </motion.div>
-            </div>
-        )}
+        }
 
-        </>
-    )
+
+
+
+
 }
