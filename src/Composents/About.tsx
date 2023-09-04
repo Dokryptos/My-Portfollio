@@ -1,6 +1,6 @@
 
 
-import React, { FunctionComponent, useState, useRef, useEffect} from 'react'
+import { FunctionComponent, useState, useRef, useEffect} from 'react'
 import DOK from "../Assets/desktop/Dok1.svg"
 import AboutImg from "../Assets/desktop/InternetPage.svg"
 import MobileDOK from "../Assets/mobile/DOK.svg"
@@ -8,12 +8,13 @@ import MobileAbout from "../Assets/mobile/internet-Page.svg"
 import "./About.css"
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
-import { useNavigate, Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { LoadingBar } from '../Composents/Loading';
+import Transition from './Transition'
 
 
 
-export const About: FunctionComponent = () => {
+const About: FunctionComponent = () => {
 
     // Ref the Scroll Bar for have the ScrollYProgress only on the Div 'Container'
     const ref = useRef(null)
@@ -33,7 +34,6 @@ export const About: FunctionComponent = () => {
 
 
     // Redirect to the menu Page after scrolling 100% the About Page
-    const [scrollAtBottom, setScrollAtBottom] = useState(false);
     let navigate = useNavigate(); // Navigate = Redirect
   
     useEffect(() => {
@@ -43,13 +43,9 @@ export const About: FunctionComponent = () => {
         const documentHeight = document.documentElement.scrollHeight;
 
 
-        if (scrollY + windowHeight === documentHeight) {
-          setScrollAtBottom(true);
-        
+        if (scrollY + windowHeight === documentHeight) {        
           navigate('/menu');
-        } else {
-          setScrollAtBottom(false);
-        }
+        } 
       }
   
       window.addEventListener('scroll', checkScrollBar);
@@ -200,9 +196,6 @@ export const About: FunctionComponent = () => {
             )
 
         }
-
-
-
-
-
 }
+
+export default Transition(About)

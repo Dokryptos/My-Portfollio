@@ -1,9 +1,9 @@
 
 import React,{useState, FunctionComponent} from 'react'
 import '../Composents/Menu.css'
+import Transition from './Transition'
 
-
-export const Menu: FunctionComponent = () => {
+const Menu: FunctionComponent = () => {
 
 
     return(
@@ -12,3 +12,4 @@ export const Menu: FunctionComponent = () => {
         </div>
     )
 }
+export default Transition(Menu)
