@@ -1,11 +1,11 @@
 
+
 .desktop-container{
     width: 100%;
     height: 300vh;
     overflow: hidden;
     margin: 0;
     padding: 0;
-    scroll-behavior: smooth;
 }
 
 .Parallax-img{
