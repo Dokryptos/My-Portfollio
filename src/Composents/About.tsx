@@ -8,7 +8,7 @@ import MobileAbout from "../Assets/mobile/internet-Page.svg"
 import "./About.css"
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
-import { redirect } from 'react-router-dom'
+import { useNavigate, Navigate } from 'react-router-dom'
 import { LoadingBar } from '../Composents/Loading';
 
 
@@ -26,14 +26,39 @@ export const About: FunctionComponent = () => {
         query: "(max-device-width: 768px)",
       });
 
-    const [isLoadingComplete, setIsLoadingComplete] = useState(false)
+
+
+
+
+
+
+    // Redirect to the menu Page after scrolling 100% the About Page
+    const [scrollAtBottom, setScrollAtBottom] = useState(false);
+    let navigate = useNavigate(); // Navigate = Redirect
   
-    const handleLoadingPage = () => {
-        setIsLoadingComplete(true);
-    }
+    useEffect(() => {
+      function checkScrollBar() {
+        const scrollY = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
 
-    const transition = useTransform(scrollYProgress,[0, 0.97, 1], [false, false, true])
 
+        if (scrollY + windowHeight === documentHeight) {
+          setScrollAtBottom(true);
+        
+          navigate('/menu');
+        } else {
+          setScrollAtBottom(false);
+        }
+      }
+  
+      window.addEventListener('scroll', checkScrollBar);
+  
+      return () => {
+        window.removeEventListener('scroll', checkScrollBar);
+      };
+    }, [navigate]); // Need navigate dependancy
+  
 
 
 
@@ -80,6 +105,14 @@ export const About: FunctionComponent = () => {
         const mobileTranslateY3 = useTransform(smoothScroll, [0.5, 0.85,  0.95], ['99vh', '98vh', '17.5vh']);
 
 
+
+
+
+        const [isLoadingComplete, setIsLoadingComplete] = useState(false)
+  
+        const handleLoadingPage = () => {
+            setIsLoadingComplete(true);
+        }
 
         if(isLoadingComplete === false){
 
