@@ -28,7 +28,8 @@ const Navbar: FunctionComponent<NavbarProps>= ({imageUrl}) => {
                 initial={{ y: '100%'}}                
                 animate={{ y: '0'}}
                 exit={{ y: '100%'}}
-                className='menu-container'
+                transition={{ duration: 0.4}}
+                className='navbar-container'
                 >
                     <ul className='ul-Link'>
                         <Link to={"/menu"}>

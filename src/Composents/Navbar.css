@@ -1,4 +1,4 @@
-.menu-container{
+.navbar-container{
     position: fixed;
     bottom: 0;
     left: 0;
@@ -13,13 +13,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 70vh;
+    height: 85%;
     z-index: 3;
 }
 
 .ul-Link li{
-    margin: 2px;
-    padding: 0.5em 1em;
+    margin: 5px;
+    padding: 0.25em 1em;
     background-color: #D3D3D3;
     border-radius: 5em;
     font-size: 4vh;
