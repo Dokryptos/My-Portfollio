@@ -16,35 +16,38 @@ export const Header: React.FC<HeaderProps> = ({onColorChange}) => {
     return (
         <header>
             <ul>
-                <li style={{ color: textColor}} 
-                onClick={() => {
-                    onColorChange('#FFF198')
-                    handleColorText();
-                    }}>
-                        Yellow
-                </li>
-                <li style={{ color: textColor}} 
+                <div className="first-colorDiv">
+                    <li style={{ color: textColor}} 
                     onClick={() => {
-                    onColorChange('#6FA990')
-                    handleColorText();
-                    }}>
-                        Green
-                </li>
-
-                <li style={{ color: textColor}}
-                    onClick={() => {
-                    onColorChange('#84ADD2')
-                    handleColorText();
-                    }}>
-                        Blue
-                </li>
-                <li style={{ color: textColor}} 
-                    onClick={() => {
-                    onColorChange('#CFA1F2')
-                    handleColorText();
-                    }}>
-                        Purple
-                </li>
+                        onColorChange('#FFF198')
+                        handleColorText();
+                        }}>
+                            Yellow
+                    </li>
+                    <li style={{ color: textColor}} 
+                        onClick={() => {
+                        onColorChange('#6FA990')
+                        handleColorText();
+                        }}>
+                            Green
+                    </li>
+                </div>
+                <div className="second-colorDiv">
+                    <li style={{ color: textColor}}
+                        onClick={() => {
+                        onColorChange('#84ADD2')
+                        handleColorText();
+                        }}>
+                            Blue
+                    </li>
+                    <li style={{ color: textColor}} 
+                        onClick={() => {
+                        onColorChange('#CFA1F2')
+                        handleColorText();
+                        }}>
+                            Purple
+                    </li>
+                </div>
             </ul>
         </header>
     )
