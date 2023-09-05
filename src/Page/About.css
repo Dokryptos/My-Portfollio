@@ -1,6 +1,7 @@
 
 
 .desktop-container{
+    background-color: #1E1E1E;
     width: 100%;
     height: 300vh;
     overflow: hidden;
@@ -25,6 +26,7 @@
 
 
 .mobile-container{
+    background-color: #1E1E1E;
     width: 100%;
     height: 500vh;
     overflow: hidden;

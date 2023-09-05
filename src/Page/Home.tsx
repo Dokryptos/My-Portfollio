@@ -5,12 +5,12 @@ import DOK from "../Assets/desktop/Dok1.svg"
 import AboutImg from "../Assets/desktop/InternetPage.svg"
 import MobileDOK from "../Assets/mobile/DOK.svg"
 import MobileAbout from "../Assets/mobile/internet-Page.svg"
-import "./About.css"
+import "./Home.css"
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
 import { useNavigate } from 'react-router-dom'
 import { LoadingBar } from '../Composents/Loading';
-import Transition from './Transition'
+import Transition from '../Composents/Transition'
 
 
 
