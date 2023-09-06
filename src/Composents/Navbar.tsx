@@ -27,7 +27,7 @@ const Navbar: FunctionComponent<NavbarProps>= ({imageUrl}) => {
                 <motion.div
                 initial={{ y: '100%'}}                
                 animate={{ y: '0'}}
-                exit={{ y: '100%'}}
+                exit={{ y: '0%'}}
                 transition={{ duration: 0.4}}
                 className='navbar-container'
                 >
@@ -47,7 +47,7 @@ const Navbar: FunctionComponent<NavbarProps>= ({imageUrl}) => {
 
         <div>
             { imageUrl ? (
-            <div>
+            <div className='div-btn-nav'>
                 <button  className={classNames ("navbar-burger", {'open': openMenu})} onClick={handleOpenMenu}>
                     <span className="burger-bar black" ></span>
                     <span className="burger-bar black" ></span>
@@ -56,13 +56,13 @@ const Navbar: FunctionComponent<NavbarProps>= ({imageUrl}) => {
             <img src={DOKblack} alt='DOK-menu' className='img-nav'/>
             </div>
             ) : (
-            <div>
+            <div className='div-btn-nav'>
                 <div  className={classNames ("navbar-burger", {'open': openMenu})} onClick={handleOpenMenu}>
                     <span className="burger-bar white" ></span>
                     <span className="burger-bar white" ></span>
                     <span className="burger-bar white" ></span>
                 </div>
-                <img src={DOK} alt='DOK-black' className='img-nav' />
+                    <img src={DOK} alt='DOK-black' className='img-nav' />
             </div>
             )}
 

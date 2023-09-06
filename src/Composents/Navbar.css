@@ -26,23 +26,30 @@
 }
 
 
-.navbar-burger{
+
+.div-btn-nav{
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    top: 0em;
+}
+
+.navbar-burger{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 2em;
+
     top: 1em;
     cursor: pointer;
     border: 0;
     height: 1rem;
     z-index: 10;
-}
-
-.navbar-burger.open{
-    position: absolute;
-    z-index: 4;
 }
 
 .burger-bar{
@@ -53,11 +60,11 @@
     z-index: 4;
     transform-origin: 1px;
 }
-
-
-
-
-
+.img-nav{
+    width: 10em;
+    margin-top: 5vh;
+    z-index: 4;
+}
 
 .black, .burger-bar.black{
     background-color: black;
@@ -65,3 +72,4 @@
 .white, .burger-bar.white{
     background-color: #D3D3D3;
 }
+

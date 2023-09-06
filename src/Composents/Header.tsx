@@ -14,8 +14,8 @@ export const Header: React.FC<HeaderProps> = ({onColorChange}) => {
         setTextColor('#000000')
     }
     return (
-        <header>
-            <ul>
+        <header className="header">
+            <ul className="ul-header">
                 <div className="first-colorDiv">
                     <li style={{ color: textColor}} 
                     onClick={() => {

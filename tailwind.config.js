@@ -9,7 +9,7 @@ module.exports = {
       colors: {
         'gray-bar': "#EAEAEA",
         'complete-bar': "#7C7C7C"
-      }
+      },
     },
   },
   plugins: [],
