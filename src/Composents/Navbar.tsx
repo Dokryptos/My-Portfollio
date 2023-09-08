@@ -31,10 +31,11 @@ const Navbar: FunctionComponent<NavbarProps>= ({imageUrl}) => {
             {openMenu && (
                 <motion.div
                 initial={{ y: '100%'}}                
-                animate={{ y: '15%'}}
-                exit={{ y: '0%'}}
+                animate={{ y: '0%'}}
+                exit={{ y: '100%'}}
                 transition={{ duration: 0.4}}
                 className='navbar-container'
+                onClick={handleOpenMenu}
                 >
                     <ul className='ul-Link'>
                         <Link to={"/menu"}>
@@ -58,7 +59,7 @@ const Navbar: FunctionComponent<NavbarProps>= ({imageUrl}) => {
                     <span className="burger-bar black" ></span>
                     <span className="burger-bar black" ></span>
                 </button>
-            <img src={DOKblack} alt='DOK-menu' className='img-nav'/>
+            <img src={DOKblack} alt='DOK-menu' className='img-nav' onClick={handleRedirect}/>
             </div>
             ) : (
             <div className='div-btn-nav'>

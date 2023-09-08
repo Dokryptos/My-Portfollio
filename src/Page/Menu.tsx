@@ -3,7 +3,7 @@ import React,{useState, FunctionComponent} from 'react'
 import './Menu.css'
 import Navbar from '../Composents/Navbar'
 import { Header } from '../Composents/Header'
-
+import { motion } from 'framer-motion'
 
 
 
@@ -23,9 +23,14 @@ export const Menu: FunctionComponent = () => {
         <div className='menu-container' style={{ backgroundColor: backgroundColor}}>
             <Header onColorChange={handleLinkClick} />
             <Navbar imageUrl={imageBoolean} />
-            <div>
-                
+            <div className='projet'>
+                <ul>
+                    <li></li>
+                </ul>
             </div >
+            <div>
+                <img />
+            </div>
         </div>
     )
 }
