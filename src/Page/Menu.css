@@ -4,15 +4,27 @@ body{
 .menu-container{
     height: 100vh;
 }
-
-.list-project{
+.projet{
+    display: flex;
+    align-items: center;
+    height: 50vh;
 }
-
+.list-project{
+    width: 50vw;
+}
 .list-project li{
-    padding: 0.5em 1em;
+    padding: 1em 1em;
     background-color: #D3D3D3;
-    width: 15vw;
+    width: 25vw;
     border-radius: 5em;
-    font-size: 3vh;
-    margin: 0.2em 0;
+    font-size: 1.5vw;
+    margin: 0.5em 0;
+    cursor: pointer;
+}
+.list-project li .selected{
+    background-color: black;
+    color: white;
+}
+.img-menu{
+    width: 40vw;
 }
