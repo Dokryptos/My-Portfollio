@@ -4,3 +4,15 @@ body{
 .menu-container{
     height: 100vh;
 }
+
+.list-project{
+}
+
+.list-project li{
+    padding: 0.5em 1em;
+    background-color: #D3D3D3;
+    width: 15vw;
+    border-radius: 5em;
+    font-size: 3vh;
+    margin: 0.2em 0;
+}

@@ -28,7 +28,7 @@ const About: FunctionComponent = () => {
       });
 
 
-
+    
 
 
 
@@ -42,8 +42,10 @@ const About: FunctionComponent = () => {
         const windowHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
 
-
-        if (scrollY + windowHeight === documentHeight) {        
+        console.log(scrollY + 10 + windowHeight);
+        
+        console.log(documentHeight);
+        if ((scrollY + 1 ) + windowHeight >= documentHeight) {        
           navigate('/menu');
         } 
       }
@@ -55,6 +57,7 @@ const About: FunctionComponent = () => {
       };
     }, [navigate]); // Need navigate dependancy
   
+
 
 
 
