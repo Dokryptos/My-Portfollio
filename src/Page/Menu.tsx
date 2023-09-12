@@ -4,15 +4,17 @@ import './Menu.css'
 import Navbar from '../Composents/Navbar'
 import { Header } from '../Composents/Header'
 import { motion } from 'framer-motion'
-import Menu1 from '../Assets/desktop/Menu1.svg'
-
+import ChefOnTheWay from '../Assets/desktop/ChefOnTheWay.svg'
+import EventApp from '../Assets/desktop/Events-app.svg'
+import ZombieSurvival from '../Assets/desktop/Zombie.svg'
+import Lapicide from '../Assets/desktop/Lapicide.svg'
 
 
 export const Menu: FunctionComponent = () => {
 
     let [backgroundColor, setBackgroundColor] = useState<string>('#252527')
     let [imageBoolean, setImageBoolean] = useState<boolean>(false)
-    let [imageMenu, setImageMenu] = useState<string | undefined>(Menu1)
+    let [imageMenu, setImageMenu] = useState<string | undefined>(ChefOnTheWay)
     let [isImgVisible, setIsImgVisible] = useState<boolean>(false) 
     let [isLiVisible, setIsLiVisible] = useState<boolean>(false) 
 
@@ -20,18 +22,21 @@ export const Menu: FunctionComponent = () => {
         setBackgroundColor(color);
         setImageBoolean(true);
     };
+    {/*https://event-app.adaptable.app/
+    https://lapicide.netlify.app/
 
+*/}
     const handleChangeImg = (value:number) => {
         if(value === 1){
-            return setImageMenu(Menu1)
+            return setImageMenu(ChefOnTheWay)
         } else if(value === 2){
-            return setImageMenu(Menu1)
+            return setImageMenu(EventApp)
         }else if(value === 3){
-            return setImageMenu(Menu1)
+            return setImageMenu(ZombieSurvival)
         }else if (value === 4){
-            return setImageMenu(Menu1)
+            return setImageMenu(Lapicide)
         } else {
-            return setImageMenu(Menu1)
+            return setImageMenu(ChefOnTheWay)
         }
 
     }
