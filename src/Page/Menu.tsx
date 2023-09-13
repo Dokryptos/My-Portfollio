@@ -9,7 +9,7 @@ import EventApp from '../Assets/desktop/Events-app.svg'
 import ZombieSurvival from '../Assets/desktop/Zombie.svg'
 import Lapicide from '../Assets/desktop/Lapicide.svg'
 import { Link } from 'react-router-dom'
-
+import { useMediaQuery } from 'react-responsive'
 
 export const Menu: FunctionComponent = () => {
 
@@ -34,6 +34,9 @@ export const Menu: FunctionComponent = () => {
         setImageBoolean(true);
     };
 
+    const isMobile = useMediaQuery({
+        query: "(max-device-width: 768px)",
+      });
 
 
     // Onclick function for the Menu Page with Image, link Background color
@@ -103,6 +106,58 @@ export const Menu: FunctionComponent = () => {
 
 
     return(
+        <>
+        {isMobile ? (
+                    <div className='menu-container' style={{ backgroundColor: backgroundColor}}>
+            
+                    <Header onColorChange={handleLinkClick} />
+                    <Navbar imageUrl={imageBoolean} />
+        
+        
+                    <div className='projet'>
+                        <ul className={`list-project`}>
+        
+                            <li 
+                            className={isSelected === 1 ? 'selected' : 'not'}
+                            onClick={() => {handleChangeImg(1)}}>
+                                Chef on the Way</li>
+        
+        
+                            <li 
+                            className={isSelected === 2 ? 'selected' : 'not'}
+                            onClick={() => {handleChangeImg(2)}}>
+                                Events App</li>
+                            
+        
+                            <li 
+                            className={isSelected === 3 ? 'selected' : 'not'}
+                            onClick={() => {handleChangeImg(3)}}>
+                                Zombie Survival</li>
+                            
+        
+                            <li 
+                            className={isSelected === 4 ? 'selected' : 'not'}
+                            onClick={() => {handleChangeImg(4) }}>
+                                Lapicide</li>
+        
+                        </ul>
+        
+                    <motion.div
+                    initial='hidden'
+                    animate={isImgVisible ? 'visible' : 'hidden'}
+                    variants={imgVariants}
+                    transition={{ duration: 0.5}}
+                    
+                    >   
+                    <Link to={link} target='_blank'>
+                                        <img src={imageMenu} alt='imgMenu' className="img-menu" />
+                    </Link>
+                    <h3 className='img-text'>View it Online</h3>
+                    </motion.div>
+                </div >
+            </div>
+        
+        ) : (
         <div className='menu-container' style={{ backgroundColor: backgroundColor}}>
             
             <Header onColorChange={handleLinkClick} />
@@ -110,7 +165,8 @@ export const Menu: FunctionComponent = () => {
 
 
             <div className='projet'>
-                <ul className={`list-project`}>
+                <div className='list-project'>
+                <ul className='list-project-ul'>
 
                     <motion.li 
                     initial='hidden'
@@ -152,7 +208,7 @@ export const Menu: FunctionComponent = () => {
                         Lapicide</motion.li>
 
                 </ul>
-
+            </div>
             <motion.div
             initial='hidden'
             animate={isImgVisible ? 'visible' : 'hidden'}
@@ -166,5 +222,7 @@ export const Menu: FunctionComponent = () => {
             </motion.div>
         </div >
     </div>
+        )}
+    </>
     )
 }

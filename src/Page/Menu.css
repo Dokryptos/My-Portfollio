@@ -12,10 +12,13 @@ body{
 .list-project{
     width: 50vw;
 }
+.list-project-ul{
+    width: 25;
+}
 .list-project li{
     padding: 1em 1em;
     background-color: #D3D3D3;
-    width: 25vw;
+    width: auto;
     border-radius: 5em;
     font-size: 1.5vw;
     margin: 0.5em 0;
@@ -34,20 +37,22 @@ body{
 @media (max-width: 800px) and (min-width: 300px){
     .projet{
         flex-direction: column;
-        height: 50vh;
     }
     .list-project{
         display: flex;
         flex-direction: column;
+        align-items: center;
         width: 100vw;
+        height: 15vh;
+        margin-top: 20vh;
     }
     .list-project li{
-        padding: 1em 1em;
+        padding: 0.75em 1em;
         background-color: #D3D3D3;
-        width: 50vw;
+        width: auto;
         border-radius: 5em;
-        font-size: 1em;
-        margin: 0.25em 0;
+        font-size: 1.1em;
+        margin: 0.15em 0;
         cursor: pointer;
     }
     
@@ -59,4 +64,11 @@ body{
     .img-menu{
         width: 95vw;
     }
+    .img-text{
+        text-align: center;
+        color: white;
+        margin-top: 2vh;
+        font-size: 10px;
+    }
+
 }
