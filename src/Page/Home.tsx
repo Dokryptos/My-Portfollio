@@ -11,7 +11,7 @@ import { useMediaQuery } from 'react-responsive'
 import { useNavigate } from 'react-router-dom'
 import { LoadingBar } from '../Composents/Loading';
 import Transition from '../Composents/Transition'
-
+import Cursor from "../Assets/mobile/down.svg"
 
 
 const About: FunctionComponent = () => {
@@ -116,7 +116,7 @@ const About: FunctionComponent = () => {
         if(isLoadingComplete === false){
 
             return(
-                <LoadingBar duration={13} isComplete={handleLoadingPage} />
+                <LoadingBar duration={10} isComplete={handleLoadingPage} />
             )
         } else {
             return(
@@ -125,6 +125,7 @@ const About: FunctionComponent = () => {
                 {/* Condition if the Media query is under isMobile send this code */}
                 {isMobile ? (
                         <div className='mobile-container' ref={ref}>
+                            <img src={Cursor} alt='Cursor-down' className='Cursor' />
                             <motion.div                         
                                 style={{
                                     scaleY: mobileScaleY1,
@@ -136,7 +137,6 @@ const About: FunctionComponent = () => {
                                 }}>
                                     <img src={MobileDOK} alt='DOK' className='mobile-img'/>    
                                 </motion.div>   
-                                
                                 <motion.div
                                 style={{
                                     scale: mobileScaleY2,

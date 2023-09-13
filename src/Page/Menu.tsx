@@ -34,9 +34,11 @@ export const Menu: FunctionComponent = () => {
         setImageBoolean(true);
     };
 
+    // Define Media Query
     const isMobile = useMediaQuery({
         query: "(max-device-width: 768px)",
       });
+
 
 
     // Onclick function for the Menu Page with Image, link Background color

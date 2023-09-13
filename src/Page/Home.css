@@ -48,3 +48,9 @@
     height: calc(100% - 1rem);
     margin: 0vh 2vw;
 }
+
+.Cursor{
+    position: fixed;
+    bottom: 2%;
+    left: 48%;
+}
