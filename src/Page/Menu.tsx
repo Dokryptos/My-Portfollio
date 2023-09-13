@@ -51,7 +51,7 @@ export const Menu: FunctionComponent = () => {
         }else if (value === 4){
             return (
                 setImageMenu(Lapicide),
-                setLink('    https://lapicide.netlify.app')
+                setLink('https://lapicide.netlify.app')
             )
         } else {
             return (
@@ -139,7 +139,7 @@ export const Menu: FunctionComponent = () => {
             transition={{ duration: 0.5}}
             
             >   
-            <Link to={link}>
+            <Link to={link} target='_blank'>
                                 <img src={imageMenu} alt='imgMenu' className="img-menu" />
             </Link>
             </motion.div>
