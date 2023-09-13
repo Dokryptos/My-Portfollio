@@ -79,11 +79,11 @@ export const Menu: FunctionComponent = () => {
     useEffect(() => {
         const timeOutImg = setTimeout(() => {
             setIsImgVisible(true);
-        }, 1500);
+        }, 1000);
 
         const timeOutLi = setTimeout(() => {
             setIsLiVisible(true)
-        }, 1000)
+        }, 800)
 
         return () => {
             clearTimeout(timeOutImg);
