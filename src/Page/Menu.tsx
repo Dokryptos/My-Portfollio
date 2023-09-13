@@ -8,6 +8,7 @@ import ChefOnTheWay from '../Assets/desktop/ChefOnTheWay.svg'
 import EventApp from '../Assets/desktop/Events-app.svg'
 import ZombieSurvival from '../Assets/desktop/Zombie.svg'
 import Lapicide from '../Assets/desktop/Lapicide.svg'
+import { Link } from 'react-router-dom'
 
 
 export const Menu: FunctionComponent = () => {
@@ -17,26 +18,46 @@ export const Menu: FunctionComponent = () => {
     let [imageMenu, setImageMenu] = useState<string | undefined>(ChefOnTheWay)
     let [isImgVisible, setIsImgVisible] = useState<boolean>(false) 
     let [isLiVisible, setIsLiVisible] = useState<boolean>(false) 
+    let [link, setLink] = useState<string>('https://chef-ontheway.netlify.app')
 
     const handleLinkClick = (color: string) => {
         setBackgroundColor(color);
         setImageBoolean(true);
     };
-    {/*https://event-app.adaptable.app/
+
+
+
+    {/*
+    https://event-app.adaptable.app/
     https://lapicide.netlify.app/
 
 */}
     const handleChangeImg = (value:number) => {
         if(value === 1){
-            return setImageMenu(ChefOnTheWay)
+            return (
+                setImageMenu(ChefOnTheWay),
+                setLink('https://chef-ontheway.netlify.app')
+                )
         } else if(value === 2){
-            return setImageMenu(EventApp)
+            return(
+                setImageMenu(EventApp),
+                setLink('https://event-app.adaptable.app')
+            )
         }else if(value === 3){
-            return setImageMenu(ZombieSurvival)
+            return (
+                setImageMenu(ZombieSurvival),
+                setLink('https://dokryptos.github.io/FinalTest-Survival_Game/index.html')
+            )
         }else if (value === 4){
-            return setImageMenu(Lapicide)
+            return (
+                setImageMenu(Lapicide),
+                setLink('    https://lapicide.netlify.app')
+            )
         } else {
-            return setImageMenu(ChefOnTheWay)
+            return (
+                setImageMenu(ChefOnTheWay),
+                setLink('https://chef-ontheway.netlify.app')
+                )
         }
 
     }
@@ -78,7 +99,7 @@ export const Menu: FunctionComponent = () => {
                     initial='hidden'
                     animate={isLiVisible ? 'visible' : 'hidden'}      
                     variants={liVariants}
-                    transition={{ duration: 0.5, ease: [0, 0, 0.5, 1]}}
+                    transition={{ type:'spring', duration:0.75}}
                     onClick={() => {handleChangeImg(1)}}>
                         Chef on the Way</motion.li>
 
@@ -87,7 +108,7 @@ export const Menu: FunctionComponent = () => {
                     initial='hidden'
                     animate={isLiVisible ? 'visible' : 'hidden'}      
                     variants={liVariants}
-                    transition={{ duration: 0.75, ease: [0, 0, 0.5, 1]}} 
+                    transition={{ type:'spring', duration: 1.25}} 
                     onClick={() => {handleChangeImg(2)}}>
                         Events App</motion.li>
                     
@@ -96,7 +117,7 @@ export const Menu: FunctionComponent = () => {
                     initial='hidden'
                     animate={isLiVisible ? 'visible' : 'hidden'}      
                     variants={liVariants}                    
-                    transition={{ duration: 1, ease: [0, 0, 0.5, 1]}}
+                    transition={{ type:'spring', duration: 1.75}}
                     onClick={() => {handleChangeImg(3)}}>
                         Zombie Survival</motion.li>
                     
@@ -105,7 +126,7 @@ export const Menu: FunctionComponent = () => {
                     initial='hidden'
                     animate={isLiVisible ? 'visible' : 'hidden'}      
                     variants={liVariants}
-                    transition={{ duration: 1.25, ease: [0, 0, 0.5, 1]}} 
+                    transition={{ type:'spring', duration: 2.5}} 
                     onClick={() => {handleChangeImg(4) }}>
                         Lapicide</motion.li>
 
@@ -117,8 +138,10 @@ export const Menu: FunctionComponent = () => {
             variants={imgVariants}
             transition={{ duration: 0.5}}
             
-            >
-                <img src={imageMenu} alt='imgMenu' className="img-menu" />
+            >   
+            <Link to={link}>
+                                <img src={imageMenu} alt='imgMenu' className="img-menu" />
+            </Link>
             </motion.div>
         </div >
     </div>

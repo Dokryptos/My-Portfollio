@@ -63,6 +63,7 @@
     width: 10em;
     margin-top: 3em;
     z-index: 4;
+    cursor: pointer;
 }
 
 .black, .burger-bar.black{
