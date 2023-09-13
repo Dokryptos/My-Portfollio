@@ -31,3 +31,32 @@ body{
     width: 40vw;
 }
 
+@media (max-width: 800px) and (min-width: 300px){
+    .projet{
+        flex-direction: column;
+        height: 50vh;
+    }
+    .list-project{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
+    .list-project li{
+        padding: 1em 1em;
+        background-color: #D3D3D3;
+        width: 50vw;
+        border-radius: 5em;
+        font-size: 1em;
+        margin: 0.25em 0;
+        cursor: pointer;
+    }
+    
+    
+    .list-project  .selected{
+        background-color: black;
+        color: white;
+    }
+    .img-menu{
+        width: 95vw;
+    }
+}
