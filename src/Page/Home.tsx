@@ -116,7 +116,7 @@ const About: FunctionComponent = () => {
         if(isLoadingComplete === false){
 
             return(
-                <LoadingBar duration={12} isComplete={handleLoadingPage} />
+                <LoadingBar duration={13} isComplete={handleLoadingPage} />
             )
         } else {
             return(
