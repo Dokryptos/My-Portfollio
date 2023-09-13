@@ -44,7 +44,7 @@ const Navbar: FunctionComponent<NavbarProps>= ({imageUrl}) => {
                         <Link to={'/about'}>
                             <li>About</li>
                         </Link>
-                        <Link to={"/contact"}>
+                        <Link to={"mailto:pierredok@outlook.fr"}>
                             <li>Contact me</li>
                         </Link>
                     </ul>
