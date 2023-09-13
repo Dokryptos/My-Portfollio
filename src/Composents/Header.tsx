@@ -11,6 +11,7 @@ export const Header: React.FC<HeaderProps> = ({onColorChange}) => {
     
     const [textColor, setTextColor] = useState<string>('#FFFFFF')
     const [currentColorIndex, setCurrentColorIndex] = useState<number>(0)
+    const [liAfterColor, setLiAfterColor] = useState<string>("white")
     const colors:string[] = ['#FFF198', '#6FA990', '#84ADD2', '#CFA1F2']
 
     // Define Media Query
@@ -22,14 +23,13 @@ export const Header: React.FC<HeaderProps> = ({onColorChange}) => {
 
     const handleColorText = () => {
         setTextColor('#000000')
+        setLiAfterColor('black')
     }
 
     const handleBtnColor = () => {
         setCurrentColorIndex((currentColorIndex + 1) % colors.length);
         onColorChange(colors[currentColorIndex])
     };  
-
-    console.log(colors[currentColorIndex], currentColorIndex);
 
 
     return (
@@ -50,14 +50,16 @@ export const Header: React.FC<HeaderProps> = ({onColorChange}) => {
                     onClick={() => {
                         onColorChange('#FFF198')
                         handleColorText();
-                        }}>
+                        }}
+                        className={`color-li-${liAfterColor}`}>
                             Yellow
                     </li>
                     <li style={{ color: textColor}} 
                         onClick={() => {
                         onColorChange('#6FA990')
                         handleColorText();
-                        }}>
+                        }}
+                        className={`color-li-${liAfterColor}`}>
                             Green
                     </li>
                 </div>
@@ -66,14 +68,16 @@ export const Header: React.FC<HeaderProps> = ({onColorChange}) => {
                         onClick={() => {
                         onColorChange('#84ADD2')
                         handleColorText();
-                        }}>
+                        }}
+                        className={`color-li-${liAfterColor}`}>
                             Blue
                     </li>
                     <li style={{ color: textColor}} 
                         onClick={() => {
                         onColorChange('#CFA1F2')
                         handleColorText();
-                        }}>
+                        }}
+                        className={`color-li-${liAfterColor}`}>
                             Purple
                     </li>
                 </div>

@@ -17,10 +17,44 @@
     width: 20vw;
 }
 
-.ul-header li{
+.color-li-white, .color-li-black {
     cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    font-size: 14px;
 }
 
+.color-li-white::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    width: 0%;
+    left: 0px;
+    height: 1px;
+    transition: 0.25s cubic-bezier(0.72, -0.01, 0.19, 0.92);
+    background-color: #FFFFFF;
+}
+
+.color-li-white:hover::after{
+    width: 100%;
+}
+
+.color-li-black::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    width: 0%;
+    left: 0px;
+    height: 2px;
+    transition: 0.25s cubic-bezier(0.72, -0.01, 0.19, 0.92);
+    background-color: black;
+}
+
+.color-li-black:hover::after{
+    width: 100%;
+}
 .btnChange-Color{
     position: absolute;
     display: flex;
@@ -33,4 +67,8 @@
 .btnChange-Color p{
     color: #FFFFFF;
     font-size: 12px;
+}
+
+.btnChange-Color p:hover{
+    text-decoration: underline;
 }

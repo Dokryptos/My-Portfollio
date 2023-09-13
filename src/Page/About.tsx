@@ -10,6 +10,7 @@ import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
 import { useNavigate } from 'react-router-dom'
 import Transition from '../Composents/Transition'
+import Cursor from "../Assets/mobile/down.svg"
 
 
 
@@ -106,6 +107,7 @@ const About: FunctionComponent = () => {
                 {/* Condition if the Media query is under isMobile send this code */}
                 {isMobile ? (
                         <div className='mobile-container' ref={ref}>
+                            <img src={Cursor} alt='Cursor-down' className='Cursor' />                            
                             <motion.div                         
                                 style={{
                                     scaleY: mobileScaleY1,

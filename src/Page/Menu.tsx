@@ -20,7 +20,7 @@ export const Menu: FunctionComponent = () => {
 
     // Set up for the selection of project with link, image and Back ground Color
     let [imageMenu, setImageMenu] = useState<string | undefined>(ChefOnTheWay)
-    let [isSelected, setIsSelected] = useState<number>(0)
+    let [isSelected, setIsSelected] = useState<number>(1)
     let [link, setLink] = useState<string>('https://chef-ontheway.netlify.app')
 
     // Set up timer for Starter animation
