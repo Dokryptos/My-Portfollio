@@ -18,7 +18,9 @@ body {
   font-family:  'RobotoMono-Italic';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 
 body::-webkit-scrollbar{

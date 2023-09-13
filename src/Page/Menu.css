@@ -21,10 +21,13 @@ body{
     margin: 0.5em 0;
     cursor: pointer;
 }
-.list-project li .selected{
+
+
+.list-project  .selected{
     background-color: black;
     color: white;
 }
 .img-menu{
     width: 40vw;
 }
+
