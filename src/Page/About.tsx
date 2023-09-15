@@ -1,6 +1,6 @@
 
 
-import { FunctionComponent, useState, useRef, useEffect} from 'react'
+import { FunctionComponent, useRef, useEffect} from 'react'
 import DOK from "../Assets/desktop/Dok1.svg"
 import AboutImg from "../Assets/desktop/InternetPage.svg"
 import MobileDOK from "../Assets/mobile/DOK.svg"
@@ -43,7 +43,7 @@ const About: FunctionComponent = () => {
         const documentHeight = document.documentElement.scrollHeight;
 
 
-        if (scrollY + windowHeight === documentHeight) {        
+        if ((scrollY + 1) + windowHeight === documentHeight) {        
           navigate('/menu');
         } 
       }
@@ -103,7 +103,6 @@ const About: FunctionComponent = () => {
 
             return(
                 <>
-        
                 {/* Condition if the Media query is under isMobile send this code */}
                 {isMobile ? (
                         <div className='mobile-container' ref={ref}>
