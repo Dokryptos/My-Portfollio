@@ -104,17 +104,17 @@ const Home: FunctionComponent = () => {
 
 
         
-        const [isLoadingComplete, setIsLoadingComplete] = useState(false)
+        // const [isLoadingComplete, setIsLoadingComplete] = useState(false)
   
-        const handleLoadingPage = () => {
-            setIsLoadingComplete(true);
-        }
-        if(isLoadingComplete === false){
+        // const handleLoadingPage = () => {
+        //     setIsLoadingComplete(true);
+        // }
+        // if(isLoadingComplete === false){
 
-            return(
-                <LoadingBar duration={10} isComplete={handleLoadingPage} />
-            )
-        } else { 
+        //     return(
+        //         <LoadingBar duration={10} isComplete={handleLoadingPage} />
+        //     )
+        // } else { 
             return(
                 
                 <>
@@ -193,7 +193,6 @@ const Home: FunctionComponent = () => {
                 )}    
             </>
         )
-    }
 }
 
 export default Transition(Home)
