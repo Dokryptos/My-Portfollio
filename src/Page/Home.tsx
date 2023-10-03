@@ -1,6 +1,6 @@
 
 
-import { FunctionComponent, useState, useRef, useEffect} from 'react'
+import { FunctionComponent, useRef, useEffect} from 'react'
 import DOK from "../Assets/desktop/Dok1.svg"
 import AboutImg from "../Assets/desktop/InternetPage.svg"
 import MobileDOK from "../Assets/mobile/DOK.svg"
@@ -9,7 +9,6 @@ import "./Home.css"
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useMediaQuery } from 'react-responsive'
 import { useNavigate } from 'react-router-dom'
-import { LoadingBar } from '../Composents/Loading';
 import Transition from '../Composents/Transition'
 import Cursor from "../Assets/mobile/down.svg"
 
