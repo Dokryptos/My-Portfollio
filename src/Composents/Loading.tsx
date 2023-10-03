@@ -31,8 +31,8 @@ export const LoadingBar: FunctionComponent <LoadingBarProps> = ({duration = 5, i
 
 
             return(
-        <div className="flex flex-col items-center justify-center h-screen">
-            <p className="text-white mb-10">{progress}%</p>
+        <div className="flex flex-col items-center justify-center h-screen margin-loading">
+            <p className="text-white mb-10 text-loading">{progress}%</p>
             <div className=" bg-gray-bar w-48 h-1 absolute">
                 <div style={{width: `${progress}%` }} className="bg-complete-bar w-100 h-1 relative z-1"></div>
             </div>

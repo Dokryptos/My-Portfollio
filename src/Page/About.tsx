@@ -43,7 +43,7 @@ const About: FunctionComponent = () => {
         const documentHeight = document.documentElement.scrollHeight;
 
 
-        if ((scrollY + 1) + windowHeight === documentHeight) {        
+        if ((scrollY + 1) + windowHeight >= documentHeight) {        
           navigate('/menu');
         } 
       }

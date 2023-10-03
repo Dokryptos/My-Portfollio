@@ -1,5 +1,15 @@
+.margin-loading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
 
-
+.text-loading{
+    color: white;
+    margin-bottom: 10vh;
+}
 .desktop-container{
     background-color: #1E1E1E;
     width: 100%;
